@@ -55,7 +55,7 @@ frame2 = [
 
 
 def draw_frame(surface, data):
-  for y, row in enumerate(data): #?
+  for y, row in enumerate(data): #I don't really know
     for x, colour in enumerate(row):
       rect = pygame.Rect(x*25, y*25, 25, 25) #Making each square 25 by 25
       screen.fill(colour, rect=rect)
