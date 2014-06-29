@@ -26,11 +26,16 @@ Once you can explain the solution you might try to write a computer program to s
 
 ####How many trips from shore to shore must the boat take?
 ```
-answer here
+100
 ```
 ####Explain you algorithm here:
 ```
-answer here
+1. Two children go across
+2. One child goes back
+3. One soldier goes across
+4. The child on the other side comes back
+
+Repeat all the steps until all of the soldiers are across.
 ```
 
 ##Extension
@@ -38,11 +43,314 @@ Can you represent the algorithm for this problem using a computer program (any l
 eg you could show each step in the algorithm using text:
 
 ```
-Step 25       SSSSSScc..............SSSSSSSSSSSSSSSSSSS
+import pygame, sys
+
+pygame.init()
+
+screen = pygame.display.set_mode([300,100])
+
+w = pygame.Color("white")
+b = pygame.Color("blue")
+g = pygame.Color("green")
+c = pygame.Color("cyan")
+p = pygame.Color("pink")
+bl = pygame.Color("black")
+br = pygame.Color("brown")
+
+step1 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,c,c,c,c,c,c,p,p,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step2 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,c,c,c,c,p,p,c,c,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step3 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,c,c,c,p,p,c,c,c,bl],
+    [g,g,g,c,c,c,br,br,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step4 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,c,c,p,p,c,c,c,c,bl],
+    [g,g,g,c,c,br,br,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step5 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,c,p,p,c,c,c,c,c,bl],
+    [g,g,g,c,br,br,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step6 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,c,p,p,c,c,c,c,c,c,bl],
+    [g,g,g,br,br,c,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step7 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,p,c,c,c,c,c,c,c,bl],
+    [g,g,g,br,br,c,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step8 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,p,c,c,c,c,c,c,bl],
+    [g,g,g,c,br,br,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step9 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,p,c,c,c,c,c,bl],
+    [g,g,g,c,c,br,br,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step10 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,p,c,c,c,c,bl],
+    [g,g,g,c,c,c,br,br,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step11 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,p,c,c,c,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step12 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,c,p,c,c,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step13 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,c,c,p,c,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step14 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,c,c,c,p,bl],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step15 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,c,c,bl,p,c],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step16 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,c,bl,c,p,c],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step17 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,c,bl,c,c,p,c],
+    [g,g,g,c,c,c,br,br,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step18 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,c,bl,c,c,c,p,c],
+    [g,g,g,c,c,br,br,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step19 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,c,bl,c,c,c,c,p,c],
+    [g,g,g,c,br,br,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step20 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,c,bl,c,c,c,c,c,p,c],
+    [g,g,g,br,br,c,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step21 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,p,bl,c,c,c,c,c,c,p,c],
+    [g,g,g,br,br,c,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step22 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,p,c,c,c,c,c,c,p,c],
+    [g,g,g,br,br,c,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step23 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,p,c,c,c,c,c,p,c],
+    [g,g,g,c,br,br,c,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step24 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,c,p,c,c,c,c,p,c],
+    [g,g,g,c,c,br,br,c,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step25 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,c,c,p,c,c,c,p,c],
+    [g,g,g,c,c,c,br,br,c,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step26 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,c,c,c,p,c,c,p,c],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step27 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,c,c,c,c,p,c,p,c],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
+
+step28 = [
+    [c,c,c,c,c,c,c,c,c,c,c,c],
+    [c,c,bl,c,c,c,c,c,c,p,p,c],
+    [g,g,g,c,c,c,c,br,br,g,g,g],
+    [g,g,g,b,b,b,b,b,b,g,g,g],
+    ]
 
 
-c = child
-S = solider
+print("The pink squares represent the two children\n")
+print("The black square represents one soldier\n")
+print("And the two brown squares represent the boat")
+
+
+
+def draw_frame(surface, data):
+  for y, row in enumerate(data):
+    for x, colour in enumerate(row):
+      rect = pygame.Rect(x*25, y*25, 25, 25)
+      screen.fill(colour, rect=rect)
+
+while True:
+    draw_frame(screen, step1)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step2)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step3)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step4)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step5)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step6)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step7)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step8)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step9)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step10)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step11)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step12)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step13)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step14)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step15)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step16)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step17)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step18)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step19)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step20)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step21)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step22)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step23)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step24)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step25)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step26)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step27)
+    pygame.display.update()
+    pygame.time.wait(1000)
+    draw_frame(screen, step28)
+    pygame.display.update()
+    pygame.time.wait(1000)
 ```       
 
 For text based programs like pytohn you should create a new file in you repository
